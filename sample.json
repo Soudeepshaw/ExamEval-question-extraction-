@@ -1,0 +1,587 @@
+{
+  "success": true,
+  "data": {
+    "sections": [
+      {
+        "name": "Section-A",
+        "optional_between": false,
+        "optional_with": null,
+        "instruction": "Question 1 to 16 are multiple choice questions. Only one of the choices is correct. Select and write the correct choice as well as the answer to these questions. Question No. 17 to 20 consist of two statements – Assertion (A) and Reason (R). Answer these questions by selecting the appropriate option given below.",
+        "questions": [
+          {
+            "number": "1",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "2",
+            "type": "matching",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "3",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "4",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "5",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "6",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "7",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "8",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "9",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "10",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "11",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "12",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "13",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "14",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "15",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "16",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "17",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "18",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "19",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "20",
+            "type": "multiple_choice_single",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          }
+        ]
+      },
+      {
+        "name": "Section-B",
+        "optional_between": false,
+        "optional_with": null,
+        "instruction": "Question No. 21 to 26 are very short answer questions",
+        "questions": [
+          {
+            "number": "21",
+            "type": "short_answer",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              },
+              {
+                "label": "B",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              }
+            ]
+          },
+          {
+            "number": "22",
+            "type": "short_answer",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "23",
+            "type": "short_answer",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "short_answer",
+                "optional": true,
+                "optional_group": "1"
+              },
+              {
+                "label": "B",
+                "type": "short_answer",
+                "optional": true,
+                "optional_group": "1"
+              }
+            ]
+          },
+          {
+            "number": "24",
+            "type": "short_answer",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              },
+              {
+                "label": "B",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              },
+              {
+                "label": "C",
+                "type": "problem_solving",
+                "optional": false,
+                "optional_group": null
+              }
+            ]
+          },
+          {
+            "number": "25",
+            "type": "problem_solving",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "problem_solving",
+                "optional": true,
+                "optional_group": "1"
+              },
+              {
+                "label": "B",
+                "type": "problem_solving",
+                "optional": true,
+                "optional_group": "1"
+              }
+            ]
+          },
+          {
+            "number": "26",
+            "type": "short_answer",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          }
+        ]
+      },
+      {
+        "name": "Section-C",
+        "optional_between": false,
+        "optional_with": null,
+        "instruction": "Question No. 27 to 33 are short answer questions",
+        "questions": [
+          {
+            "number": "27",
+            "type": "short_answer",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              },
+              {
+                "label": "B",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              }
+            ]
+          },
+          {
+            "number": "28",
+            "type": "short_answer",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "short_answer",
+                "optional": true,
+                "optional_group": "1"
+              },
+              {
+                "label": "B",
+                "type": "short_answer",
+                "optional": true,
+                "optional_group": "1"
+              }
+            ]
+          },
+          {
+            "number": "29",
+            "type": "short_answer",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": []
+          },
+          {
+            "number": "30",
+            "type": "problem_solving",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "problem_solving",
+                "optional": false,
+                "optional_group": null
+              },
+              {
+                "label": "B",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              }
+            ]
+          },
+          {
+            "number": "31",
+            "type": "short_answer",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              },
+              {
+                "label": "B",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              }
+            ]
+          },
+          {
+            "number": "32",
+            "type": "problem_solving",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "problem_solving",
+                "optional": false,
+                "optional_group": null
+              },
+              {
+                "label": "B",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              }
+            ]
+          },
+          {
+            "number": "33",
+            "type": "short_answer",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              },
+              {
+                "label": "B",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              },
+              {
+                "label": "C",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Section-D",
+        "optional_between": false,
+        "optional_with": null,
+        "instruction": "Question No. 34 to 36 are long answer questions.",
+        "questions": [
+          {
+            "number": "34",
+            "type": "problem_solving",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "problem_solving",
+                "optional": true,
+                "optional_group": "1"
+              },
+              {
+                "label": "B",
+                "type": "problem_solving",
+                "optional": true,
+                "optional_group": "1"
+              }
+            ]
+          },
+          {
+            "number": "35",
+            "type": "short_answer",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "short_answer",
+                "optional": true,
+                "optional_group": "1"
+              },
+              {
+                "label": "B",
+                "type": "short_answer",
+                "optional": true,
+                "optional_group": "1"
+              }
+            ]
+          },
+          {
+            "number": "36",
+            "type": "problem_solving",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "problem_solving",
+                "optional": true,
+                "optional_group": "1"
+              },
+              {
+                "label": "B",
+                "type": "problem_solving",
+                "optional": true,
+                "optional_group": "1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Section - E",
+        "optional_between": false,
+        "optional_with": null,
+        "instruction": "Question No. 37 to 39 are case-based/data -based questions.",
+        "questions": [
+          {
+            "number": "37",
+            "type": "case_study",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              },
+              {
+                "label": "B",
+                "type": "short_answer",
+                "optional": true,
+                "optional_group": "1"
+              },
+              {
+                "label": "C",
+                "type": "short_answer",
+                "optional": true,
+                "optional_group": "1"
+              }
+            ]
+          },
+          {
+            "number": "38",
+            "type": "case_study",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "short_answer",
+                "optional": true,
+                "optional_group": "1"
+              },
+              {
+                "label": "B",
+                "type": "short_answer",
+                "optional": true,
+                "optional_group": "1"
+              },
+              {
+                "label": "C",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              },
+              {
+                "label": "D",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              }
+            ]
+          },
+          {
+            "number": "39",
+            "type": "case_study",
+            "optional": false,
+            "optional_with": null,
+            "subquestions": [
+              {
+                "label": "A",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              },
+              {
+                "label": "B",
+                "type": "short_answer",
+                "optional": false,
+                "optional_group": null
+              },
+              {
+                "label": "C",
+                "type": "short_answer",
+                "optional": true,
+                "optional_group": "1"
+              },
+              {
+                "label": "D",
+                "type": "short_answer",
+                "optional": true,
+                "optional_group": "1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "total_sections": 5,
+      "total_questions": 39,
+      "optional_structures": [
+        "Q23: Optional subquestions (A or B)",
+        "Q25: Optional choice between block A and block B",
+        "Q28: Optional choice between block A and block B",
+        "Q34: Optional choice between block A and block B",
+        "Q35: Optional choice between block A and block B",
+        "Q36: Optional choice between block A and block B",
+        "Q37: Optional subquestions (B or C)",
+        "Q38: Optional subquestions (A or B)",
+        "Q39: Optional subquestions (C or D)"
+      ]
+    }
+  },
+  "error": null,
+  "processing_time": 76.39139556884766
+}

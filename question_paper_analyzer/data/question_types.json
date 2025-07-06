@@ -1,0 +1,229 @@
+{
+  "question_types": [
+    {
+      "type": "multiple_choice_single",
+      "identify": "Typically has a question stem followed by multiple options labeled (a), (b), (c), etc. Only one correct answer is implied. Instructions may include 'Choose the correct answer'.",
+      "content_extraction": "Extract question text and all options with their labels"
+    },
+    {
+      "type": "multiple_choice_multiple",
+      "identify": "Question has a stem with multiple correct options. Instructions will say 'Choose all that apply' or 'Select multiple'.",
+      "content_extraction": "Extract question text and all options, noting multiple selection requirement"
+    },
+    {
+      "type": "true_false",
+      "identify": "Statement followed by 'True' or 'False' as answer choices. Often used to assess factual correctness.",
+      "content_extraction": "Extract the statement to be evaluated"
+    },
+    {
+      "type": "yes_no",
+      "identify": "Simple question expecting a 'Yes' or 'No' answer. Found in factual or decision-based queries.",
+      "content_extraction": "Extract the question requiring yes/no response"
+    },
+    {
+      "type": "matching",
+      "identify": "Two columns of related terms/items (Column A and B) to be matched. Usually has clear one-to-one correspondence.",
+      "content_extraction": "Extract both columns with all items and matching instructions"
+    },
+    {
+      "type": "fill_in_the_blank",
+      "identify": "Sentence with one or more blanks (underscores). Requires students to supply missing word(s).",
+      "content_extraction": "Extract complete sentence with blank positions marked, count blanks"
+    },
+    {
+      "type": "numeric_response",
+      "identify": "Math-based or quantitative questions requiring number as an answer. Often has 'Calculate' or 'What is the value of...'",
+      "content_extraction": "Extract mathematical problem with all given data and formulas"
+    },
+    {
+      "type": "dropdown",
+      "identify": "Contains a blank or bracket space with dropdown choices. Used in digital assessments.",
+      "content_extraction": "Extract sentence with dropdown options listed"
+    },
+    {
+      "type": "ordering",
+      "identify": "Instructions include 'Arrange in order', 'Sequence the events', or similar. Items are logically or temporally related.",
+      "content_extraction": "Extract all items to be ordered and ordering criteria"
+    },
+    {
+      "type": "hotspot",
+      "identify": "Involves clicking or marking a region on an image. Instructions usually say 'Identify on the image' or 'Click on...'",
+      "content_extraction": "Describe the image and what needs to be identified/marked"
+    },
+    {
+      "type": "drag_and_drop",
+      "identify": "Instructions say 'Drag the correct label/word into place'. Used online with moveable answer items.",
+      "content_extraction": "Extract items to be dragged and target locations"
+    },
+    {
+      "type": "matrix_scale",
+      "identify": "A grid of questions with response scale (e.g., Strongly Agree to Strongly Disagree) per row. Seen in surveys or behavior tests.",
+      "content_extraction": "Extract matrix questions and scale options"
+    },
+    {
+      "type": "short_answer",
+      "identify": "Direct question expecting a short phrase or single-sentence response.",
+      "content_extraction": "Extract complete question text"
+    },
+    {
+      "type": "completion",
+      "identify": "Incomplete sentence asking for a continuation or completion. May include prompts like 'Continue the sentence...'",
+      "content_extraction": "Extract incomplete sentence or prompt"
+    },
+    {
+      "type": "essay",
+      "identify": "Open-ended prompts with instructions like 'Discuss', 'Explain', 'Write an essay'. Usually includes a word limit.",
+      "content_extraction": "Extract essay prompt, word limit, and any specific requirements"
+    },
+    {
+      "type": "comprehension",
+      "identify": "Begins with a passage followed by multiple related questions. Answers are drawn directly from the passage.",
+      "content_extraction": "Extract complete passage and all related questions"
+    },
+    {
+      "type": "case_study",
+      "identify": "Real-life scenario or paragraph followed by analytical or application-based questions.",
+      "content_extraction": "Extract complete case study scenario and all related questions"
+    },
+    {
+      "type": "dbq",
+      "identify": "Includes historical documents or data charts and asks questions based on them. Found in Social Studies/History exams.",
+      "content_extraction": "Extract documents/data and all related questions"
+    },
+    {
+      "type": "problem_solving",
+      "identify": "Requires multi-step calculations, logical reasoning or deriving a solution. Typical in math, physics, and finance.",
+            "content_extraction": "Extract problem statement, given data, formulas, and solution requirements"
+    },
+    {
+      "type": "extended_matching",
+      "identify": "Theme-based matching with multiple vignettes and one shared option list. Common in medical assessments.",
+      "content_extraction": "Extract all vignettes and the complete option list with instructions"
+    },
+    {
+      "type": "integrated_testlet",
+      "identify": "Includes a base passage or context followed by multiple questions, each building on the previous.",
+      "content_extraction": "Extract base context and all sequential questions"
+    },
+    {
+      "type": "best_worst_scaling",
+      "identify": "Instructions specify selecting the most and least appropriate/preferred from a list. Used in preference analysis.",
+      "content_extraction": "Extract all options and scaling instructions"
+    },
+    {
+      "type": "image_labeling",
+      "identify": "Diagram or image with parts to be named or labeled. Used heavily in science/biology/technical subjects.",
+      "content_extraction": "Describe image/diagram in detail and extract labeling requirements"
+    },
+    {
+      "type": "audio_response",
+      "identify": "Prompt instructs to speak or record a voice response. Seen in language/oral proficiency tests.",
+      "content_extraction": "Extract audio prompt text and response requirements"
+    },
+    {
+      "type": "oral_response",
+      "identify": "Open-ended prompt expecting a spoken answer. Can be used in live assessments or recordings.",
+      "content_extraction": "Extract oral prompt and speaking requirements"
+    },
+    {
+      "type": "file_upload",
+      "identify": "Instruction asks to submit/upload a file. For example, 'Upload your report as a PDF'.",
+      "content_extraction": "Extract file upload requirements and specifications"
+    },
+    {
+      "type": "coding_challenge",
+      "identify": "Question asks to write, fix, or optimize code. Identifiable by language-specific keywords or test cases.",
+      "content_extraction": "Extract problem statement, code templates, test cases, and requirements"
+    },
+    {
+      "type": "simulation_scenario",
+      "identify": "Interactive roleplay or simulated situation requiring decision-making. Often found in training assessments.",
+      "content_extraction": "Extract scenario description and decision points"
+    },
+    {
+      "type": "task_performance",
+      "identify": "Instructions ask to perform or demonstrate a task. Physical or practical in nature.",
+      "content_extraction": "Extract task description and performance criteria"
+    },
+    {
+      "type": "letter_writing",
+      "identify": "Prompt says 'Write a letter...' with subject, recipient, and purpose mentioned.",
+      "content_extraction": "Extract letter writing requirements, recipient, purpose, and format specifications"
+    },
+    {
+      "type": "notice_writing",
+      "identify": "Prompt says 'Draft a notice...', includes event, time, venue and organizer.",
+      "content_extraction": "Extract notice requirements, event details, and format specifications"
+    },
+    {
+      "type": "advertisement_writing",
+      "identify": "Prompt says 'Write an advertisement...' with classified or display style format. Usually concise.",
+      "content_extraction": "Extract advertisement requirements, product/service details, and format type"
+    },
+    {
+      "type": "speech_writing",
+      "identify": "Instruction asks for a speech on a topic, with persuasive or formal tone and structure.",
+      "content_extraction": "Extract speech topic, audience, tone requirements, and time limit"
+    },
+    {
+      "type": "report_writing",
+      "identify": "Includes a subject of a report with expected title, date, and objective overview of an event or topic.",
+      "content_extraction": "Extract report topic, format requirements, and content specifications"
+    },
+    {
+      "type": "paragraph_writing",
+      "identify": "Prompt says 'Write a paragraph on...' and expects a small coherent block of text.",
+      "content_extraction": "Extract paragraph topic and word/sentence limit requirements"
+    },
+    {
+      "type": "grammar_exercise",
+      "subtype": "error_correction",
+      "identify": "Sentence with a grammatical error to be identified or corrected. May say 'Correct the sentence...'",
+      "content_extraction": "Extract sentence with errors and correction instructions"
+    },
+    {
+      "type": "grammar_exercise",
+      "subtype": "sentence_transformation",
+      "identify": "Prompt says 'Transform this sentence...', often includes conditions like passive/active, indirect speech etc.",
+      "content_extraction": "Extract original sentence and transformation requirements"
+    },
+    {
+      "type": "grammar_exercise",
+      "subtype": "gap_fill",
+      "identify": "A sentence with missing words and either options are given or student fills them directly.",
+      "content_extraction": "Extract sentence with gaps and available options if provided"
+    },
+    {
+      "type": "grammar_exercise",
+      "subtype": "modals_voice_tense",
+      "identify": "Instructions involve converting sentence into correct tense, using modals or changing voice (active/passive).",
+      "content_extraction": "Extract sentence and specific grammar conversion requirements"
+    },
+    {
+      "type": "diagram_based",
+      "identify": "Questions based on scientific diagrams, flowcharts, or technical drawings requiring analysis or labeling.",
+      "content_extraction": "Describe diagram in detail and extract all related questions"
+    },
+    {
+      "type": "data_interpretation",
+      "identify": "Questions based on graphs, charts, tables, or statistical data requiring analysis and interpretation.",
+      "content_extraction": "Extract data presentation and all analytical questions"
+    },
+    {
+      "type": "map_based",
+      "identify": "Questions based on geographical maps, route planning, or location identification.",
+      "content_extraction": "Describe map details and extract location-based questions"
+    },
+    {
+      "type": "timeline_based",
+      "identify": "Questions involving chronological events, historical timelines, or sequential processes.",
+      "content_extraction": "Extract timeline information and related questions"
+    },
+    {
+      "type": "assertion_reason",
+      "identify": "Two statements - Assertion (A) and Reason (R) - with options about their relationship and correctness.",
+      "content_extraction": "Extract both assertion and reason statements with answer options"
+    }
+  ]
+}
+
