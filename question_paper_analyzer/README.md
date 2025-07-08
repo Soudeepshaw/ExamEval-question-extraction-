@@ -1,415 +1,473 @@
-# Enhanced Question Paper Analyzer v2.0
+# Question Paper Analyzer
 
-Advanced AI-powered question paper analysis system with comprehensive content extraction capabilities using Google's Gemini AI.
+Advanced AI-powered microservice for extracting question paper structure and content from PDFs using Google's Gemini AI, with comprehensive rubric generation capabilities.
 
-## 🚀 Features
+## Features
 
-### Core Capabilities
-- **Structure Analysis**: Extract question paper structure, sections, and question types
-- **Content Extraction**: Complete question text, images, diagrams, and multimedia content
+- **PDF Analysis**: Extract complete question paper structure and content
+- **AI-Powered Classification**: Automatic question type identification
+- **Rubric Generation**: Create detailed rubrics and answer keys
+- **Real-time Processing**: WebSocket-based streaming for live updates
+- **Educational Standards**: Bloom's Taxonomy compliance
 - **Multi-format Support**: Handle various question types (MCQ, essays, case studies, etc.)
-- **Image Description**: AI-powered description of images, diagrams, and charts
-- **Formula Extraction**: Mathematical formulas and equations preservation
-- **Table Processing**: Structured extraction of tabular data
-- **Optional Logic Detection**: Identify optional questions and choice patterns
-- **Marks Allocation**: Extract marks and time allocation information
 
-### Enhanced Features (v2.0)
-- **Two-Stage Processing**: Separate structure and content extraction for better accuracy
-- **Comprehensive Content Types**: Support for code snippets, case studies, comprehension passages
-- **Advanced Validation**: Robust data validation with Pydantic models
-- **Error Recovery**: Intelligent JSON parsing with fallback mechanisms
-- **Performance Monitoring**: Detailed timing and performance metrics
-- **Backward Compatibility**: Maintains compatibility with v1.0 API
+## Quick Start
 
-## 📋 Requirements
+### Using Docker
 
-- Python 3.8+
-- Google Gemini API Key
-- FastAPI
-- Uvicorn
-- Google GenerativeAI
-- Pydantic v2
-- Other dependencies (see requirements.txt)
+1. Clone the repository
+2. Copy `.env.example` to `.env` and add your Gemini API key
+3. Run with Docker Compose:
 
-## 🛠 Installation
-
-1. **Clone the repository**
 ```bash
-git clone <repository-url>
-cd question_paper_analyzer
+docker-compose up -d
 ```
 
-2. **Install dependencies**
+### Manual Installation
+
+1. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Set up configuration**
+2. Set environment variables:
 ```bash
-python update_config.py
+export GEMINI_API_KEY="your-api-key"
 ```
 
-4. **Configure API key**
-Create a `.env` file with your Gemini API key:
-```env
-GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_MODEL=gemini-1.5-pro
-ENABLE_ENHANCED_EXTRACTION=true
-MAX_FILE_SIZE_MB=20
-LOG_LEVEL=INFO
-```
-
-## 🚀 Quick Start
-
-1. **Start the server**
+3. Run the application:
 ```bash
-python -m app.main
+uvicorn app.main:app --reload
 ```
 
-2. **Test the API**
+## API Endpoints
+
+- `POST /api/v1/upload` - Basic structure analysis
+- `POST /api/v1/upload-enhanced` - Complete content extraction
+- `WS /api/v1/ws/rubric-generation` - Real-time rubric generation
+- `GET /api/v1/capabilities` - Service capabilities
+- `GET /docs` - Interactive API documentation
+
+## Usage
+
+### 1. Extract Question Paper Content
 ```bash
-# Basic health check
-curl http://localhost:8000/api/v1/health
-
-# Run comprehensive tests
-python test_enhanced_api.py path/to/your/question_paper.pdf
-```
-
-3. **Access documentation**
-- Swagger UI: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
-
-## 📚 API Endpoints
-
-### Core Endpoints
-
-#### `POST /api/v1/upload`
-Basic structure analysis with optional content extraction.
-
-**Parameters:**
-- `file`: PDF file (required)
-- `extract_content`: Boolean (optional, default: false)
-
-**Response:**
-```json
-{
-  "success": true,
-  "data": {
-    "sections": [...],
-    "summary": {...}
-  },
-  "processing_time": 2.34
-}
-```
-
-#### `POST /api/v1/upload-enhanced`
-Comprehensive content extraction with full analysis.
-
-**Parameters:**
-- `file`: PDF file (required)
-
-**Response:**
-```json
-{
-  "success": true,
-  "data": {
-    "sections": [
-      {
-        "name": "Section A",
-        "questions": [
-          {
-            "number": "1",
-            "type": "multiple_choice",
-            "content": {
-              "text": "What is the capital of France?",
-              "images": [...],
-              "formulas": [...],
-              "tables": [...]
-            },
-            "options": ["A) London", "B) Berlin", "C) Paris", "D) Madrid"],
-            "marks": 2
-          }
-        ]
-      }
-    ],
-    "summary": {...}
-  },
-  "processing_time": 15.67,
-  "structure_extraction_time": 3.45,
-  "content_extraction_time": 12.22
-}
-```
-
-### Information Endpoints
-
-#### `GET /api/v1/capabilities`
-Get service capabilities and configuration.
-
-#### `GET /api/v1/question-types`
-Get all supported question types.
-
-#### `GET /api/v1/health`
-Health check endpoint.
-
-#### `GET /api/v1/stats`
-Service statistics and usage information.
-
-## 🔧 Configuration
-
-### Environment Variables
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `GEMINI_API_KEY` | - | Google Gemini API key (required) |
-| `GEMINI_MODEL` | `gemini-1.5-pro` | Gemini model to use |
-| `ENABLE_ENHANCED_EXTRACTION` | `true` | Enable enhanced content extraction |
-| `MAX_FILE_SIZE_MB` | `20` | Maximum file size in MB |
-| `MAX_CONTENT_LENGTH` | `50000` | Maximum content length per question |
-| `LOG_LEVEL` | `INFO` | Logging level |
-| `MAX_RETRIES` | `3` | Maximum retry attempts |
-| `RETRY_DELAY` | `2` | Retry delay in seconds |
-
-### Question Types
-
-The system supports 20+ question types including:
-- Multiple Choice Questions (MCQ)
-- True/False Questions
-- Fill in the Blanks
-- Short Answer Questions
-- Long Answer Questions
-- Essay Questions
-- Case Study Questions
-- Comprehension Questions
-- Matching Questions
-- Ordering/Sequencing Questions
-- Diagram-based Questions
-- Mathematical Problems
-- Code-based Questions
-- And more...
-
-## 📊 Performance
-
-### Typical Processing Times
-- **Structure Analysis**: 2-5 seconds
-- **Content Extraction**: 10-30 seconds (depending on complexity)
-- **Total Enhanced Analysis**: 15-35 seconds
-
-### Optimization Tips
-- Use basic upload for structure-only analysis (faster)
-- Use enhanced upload for complete digitization
-- Optimize PDF quality for better extraction
-- Consider file size limits for better performance
-
-## 🧪 Testing
-
-### Run Test Suite
-```bash
-# Test without PDF upload
-python test_enhanced_api.py
-
-# Test with PDF upload
-python test_enhanced_api.py path/to/test.pdf
-```
-
-### Manual Testing
-```bash
-# Test basic upload
-curl -X POST "http://localhost:8000/api/v1/upload" \
-  -H "Content-Type: multipart/form-data" \
-  -F "file=@test.pdf"
-
-# Test enhanced upload
 curl -X POST "http://localhost:8000/api/v1/upload-enhanced" \
   -H "Content-Type: multipart/form-data" \
-  -F "file=@test.pdf"
+  -F "file=@question_paper.pdf"
 ```
 
-## 🔍 Troubleshooting
-
-### Common Issues
-
-1. **"GEMINI_API_KEY not found"**
-   - Ensure your API key is set in the `.env` file
-   - Verify the API key is valid and has proper permissions
-
-2. **"File processing failed"**
-   - Check if the PDF is not corrupted
-   - Ensure file size is within limits
-   - Verify PDF is text-based (not scanned images only)
-
-3. **"Invalid response structure"**
-   - This usually indicates an issue with Gemini's response
-   - Check logs for detailed error information
-   - Retry the request as it might be a temporary issue
-
-4. **Slow processing times**
-   - Large files take longer to process
-   - Complex layouts require more processing time
-   - Consider using basic upload for faster results
-
-### Debug Mode
-Enable debug logging for detailed information:
-```env
-LOG_LEVEL=DEBUG
+### 2. Generate Rubrics (WebSocket)
+````javascript
+const ws = new WebSocket('ws://localhost:8000/api/v1/ws/rubric-generation');
+ws.send(JSON.stringify({
+    enhanced_api_response: response,
+    user_preferences: {
+                subject_hint: "Mathematics",
+        grade_level: "10",
+        quality_mode: "high",
+        rubric_standard: "bloom_taxonomy"
+    }
+}));
 ```
 
-## 📈 Monitoring
+## Configuration
 
-### Logs
-- Application logs: `logs/app.log`
-- Rotation: 10MB files, 7 days retention
-- Levels: DEBUG, INFO, WARNING, ERROR
+Key environment variables:
 
-### Metrics
-- Processing times per request
-- Success/failure rates
-- File size statistics
-- Question type distribution
+- `GEMINI_API_KEY` - Your Google Gemini API key (required)
+- `ENABLE_ENHANCED_EXTRACTION` - Enable content extraction (default: true)
+- `ENABLE_RUBRIC_GENERATION` - Enable rubric generation (default: true)
+- `RUBRIC_WORKER_COUNT` - Number of parallel workers (default: 4)
+- `RUBRIC_QUALITY_MODE` - Quality mode: high/balanced/fast (default: balanced)
 
-## 🔒 Security
+## Documentation
 
-- File size limits to prevent abuse
-- Temporary file cleanup
-- Input validation and sanitization
-- Error message sanitization in production
+- [API Documentation](docs/API_DOCUMENTATION.md)
+- [Rubric Usage Guide](docs/RUBRIC_USAGE.md)
+- [Deployment Guide](docs/DEPLOYMENT_GUIDE.md)
 
-## 🚀 Deployment
+## License
 
-### Docker Deployment
-```dockerfile
-FROM python:3.9-slim
-
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-COPY . .
-EXPOSE 8000
-
-CMD ["python", "-m", "app.main"]
+MIT License
 ```
 
-### Production Considerations
-- Use environment variables for configuration
-- Set up proper logging and monitoring
-- Configure reverse proxy (nginx)
-- Set up SSL/TLS certificates
-- Monitor resource usage and scaling
+### 10. **docs/API_DOCUMENTATION.md** (New)
+```markdown
+# API Documentation
 
-## 🤝 Contributing
+## Overview
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Submit a pull request
+The Question Paper Analyzer provides REST APIs and WebSocket endpoints for comprehensive question paper analysis and rubric generation.
 
-## 📄 License
+## Authentication
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Currently, no authentication is required. The service uses the configured Gemini API key for AI operations.
 
-## 🆘 Support
+## REST Endpoints
 
-For support and questions:
-- Check the troubleshooting section
-- Review the logs for detailed error information
-- Create an issue in the repository
-- Contact the development team
-
-## 🔄 Version History
-
-### v2.0.0 (Current)
-- Enhanced content extraction
-- Two-stage processing
-- Improved validation
-- Better error handling
-- Performance monitoring
-- Comprehensive testing
-
-### v1.0.0
-- Basic structure analysis
-- Question type classification
-- Simple content extraction
-- Core API endpoints
-
----
-
-**Note**: This system requires a valid Google Gemini API key and processes PDF files using AI. Processing times may vary based on document complexity and API response times.
+### Upload Question Paper (Basic)
+```
+POST /api/v1/upload
 ```
 
-Finally, let's create a requirements.txt file with all necessary dependencies:
+**Parameters:**
+- `file` (form-data): PDF file to analyze
+- `extract_content` (query, optional): Boolean to enable content extraction
 
-```txt:question_paper_analyzer/requirements.txt
-# Core FastAPI dependencies
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
-python-multipart==0.0.6
-aiofiles==23.2.1
-
-# Google Gemini AI
-google-generativeai==0.3.2
-
-# Data validation and settings
-pydantic==2.5.0
-pydantic-settings==2.1.0
-
-# Retry and error handling
-tenacity==8.2.3
-
-# Logging
-loguru==0.7.2
-
-# Environment management
-python-dotenv==1.0.0
-
-# HTTP client for testing
-aiohttp==3.9.1
-
-# Type hints
-typing-extensions==4.8.0
-
-# Additional utilities
-pathlib2==2.3.7; python_version < "3.4"
+**Response:**
+```json
+{
+    "success": true,
+    "data": {
+        "sections": [...],
+        "summary": {...}
+    },
+    "processing_time": 12.5
+}
 ```
 
-And a simple startup script:
-
-```bash:question_paper_analyzer/start.sh
-#!/bin/bash
-
-# Enhanced Question Paper Analyzer Startup Script
-
-echo "🚀 Starting Enhanced Question Paper Analyzer v2.0"
-echo "=================================================="
-
-# Check if .env file exists
-if [ ! -f .env ]; then
-    echo "⚠️  .env file not found. Running setup..."
-    python update_config.py
-fi
-
-# Check if virtual environment should be activated
-if [ -d "venv" ]; then
-    echo "📦 Activating virtual environment..."
-    source venv/bin/activate
-fi
-
-# Install/update dependencies
-echo "📦 Installing dependencies..."
-pip install -r requirements.txt
-
-# Create necessary directories
-mkdir -p logs temp data
-
-# Start the application
-echo "🚀 Starting server..."
-python -m app.main
-
-echo "✅ Server started successfully!"
-echo "📖 Documentation: http://localhost:8000/docs"
-echo "🏥 Health check: http://localhost:8000/api/v1/health"
+### Upload Question Paper (Enhanced)
+```
+POST /api/v1/upload-enhanced
 ```
 
+**Parameters:**
+- `file` (form-data): PDF file to analyze
+
+**Response:**
+```json
+{
+    "success": true,
+    "data": {
+        "sections": [
+            {
+                "name": "Section A",
+                "questions": [
+                    {
+                        "number": "1",
+                        "type": "multiple_choice",
+                        "content": {
+                            "text": "What is 2+2?",
+                            "images": [],
+                            "formulas": []
+                        },
+                        "options": ["A) 3", "B) 4", "C) 5", "D) 6"],
+                        "marks": 2
+                    }
+                ]
+            }
+        ],
+        "summary": {...},
+        "metadata": {...}
+    },
+    "processing_time": 45.2,
+    "structure_extraction_time": 15.1,
+    "content_extraction_time": 30.1
+}
+```
+
+### Get Question Types
+```
+GET /api/v1/question-types
+```
+
+**Response:**
+```json
+{
+    "success": true,
+    "data": {
+        "question_types": [
+            {
+                "type": "multiple_choice",
+                "category": "objective",
+                "identify": "Questions with multiple options"
+            }
+        ]
+    },
+    "total_types": 10
+}
+```
+
+### Get Service Capabilities
+```
+GET /api/v1/capabilities
+```
+
+**Response:**
+```json
+{
+    "success": true,
+    "capabilities": {
+        "supported_formats": [".pdf"],
+        "max_file_size_mb": 20,
+        "features": {
+            "structure_analysis": true,
+            "content_extraction": true,
+            "rubric_generation": true,
+            "real_time_processing": true
+        }
+    }
+}
+```
+
+### Health Check
+```
+GET /api/v1/health
+```
+
+**Response:**
+```json
+{
+    "success": true,
+    "status": "healthy",
+    "version": "3.0.0",
+    "dependencies": {
+        "gemini_api": "configured",
+        "question_types": "10 types loaded"
+    }
+}
+```
+
+## WebSocket Endpoints
+
+### Rubric Generation
+```
+WS /api/v1/ws/rubric-generation
+```
+
+**Send Message:**
+```json
+{
+    "enhanced_api_response": {
+        // Response from /upload-enhanced endpoint
+    },
+    "user_preferences": {
+        "subject_hint": "Mathematics",
+        "grade_level": "10",
+        "quality_mode": "high",
+        "rubric_standard": "bloom_taxonomy"
+    }
+}
+```
+
+**Receive Messages:**
+
+Progress Update:
+```json
+{
+    "type": "progress",
+    "data": {
+        "status": "processing",
+        "current_question": 3,
+        "total_questions": 10,
+        "estimated_remaining_time": 45
+    }
+}
+```
+
+Question Complete:
+```json
+{
+    "type": "question_complete",
+    "data": {
+        "question_index": 3,
+        "result": {
+            "classification": {
+                "question_type": "essay",
+                "subject": "Mathematics",
+                "bloom_level": "analysis",
+                "marks": 10
+            },
+            "rubric": {
+                "type": "analytical",
+                "criteria": [...]
+            },
+            "answer_key": {
+                "expected_outline": [...],
+                "key_concepts": [...]
+            }
+        }
+    }
+}
+```
+
+Final Summary:
+```json
+{
+    "type": "final_summary",
+    "data": {
+        "summary": {
+            "total_questions_processed": 10,
+            "successful_generations": 9,
+            "failed_generations": 1,
+            "total_processing_time": 120.5
+        }
+    }
+}
+```
+
+## Error Handling
+
+All endpoints return consistent error responses:
+
+```json
+{
+    "success": false,
+    "error": "Error message",
+    "details": {
+        "exception": "Detailed error information"
+    }
+}
+```
+
+Common HTTP status codes:
+- `200` - Success
+- `400` - Bad Request (invalid file, parameters)
+- `413` - File too large
+- `422` - Validation error
+- `500` - Internal server error
+- `503` - Service unavailable (feature disabled)
+
+## Rate Limits
+
+Currently no rate limits are enforced, but consider implementing them for production use.
+
+## Examples
+
+See the [Rubric Usage Guide](RUBRIC_USAGE.md) for detailed examples and integration patterns.
+```
+
+### 11. **tests/test_api.py** (New)
+```python
+import pytest
+from fastapi.testclient import TestClient
+from app.main import app
+
+client = TestClient(app)
+
+def test_root_endpoint():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert "Welcome to Question Paper Analyzer" in response.json()["message"]
+
+def test_health_check():
+    response = client.get("/api/v1/health")
+    assert response.status_code in [200, 503]  # May fail if API key not configured
+
+def test_capabilities():
+    response = client.get("/api/v1/capabilities")
+    assert response.status_code == 200
+    assert response.json()["success"] == True
+    assert "capabilities" in response.json()
+
+def test_question_types():
+    response = client.get("/api/v1/question-types")
+    assert response.status_code == 200
+    assert response.json()["success"] == True
+    assert "data" in response.json()
+
+def test_upload_without_file():
+    response = client.post("/api/v1/upload")
+    assert response.status_code == 422  # Validation error
+
+def test_upload_enhanced_without_file():
+    response = client.post("/api/v1/upload-enhanced")
+    assert response.status_code == 422  # Validation error
+
+# Add more tests as needed
+```
+
+### 12. **tests/test_gemini_client.py** (New)
+```python
+import pytest
+from unittest.mock import Mock, patch
+from app.core.gemini_client import GeminiClient
+
+@pytest.fixture
+def gemini_client():
+    return GeminiClient()
+
+def test_gemini_client_initialization(gemini_client):
+    assert gemini_client.model is not None
+
+@patch('app.core.gemini_client.genai.upload_file')
+async def test_upload_file(mock_upload, gemini_client):
+    # Mock the upload response
+    mock_file = Mock()
+    mock_file.state.name = "ACTIVE"
+    mock_file.uri = "test-uri"
+    mock_upload.return_value = mock_file
+    
+    result = await gemini_client.upload_file("test.pdf")
+    assert result == mock_file
+
+def test_parse_json_response(gemini_client):
+    # Mock response object
+    mock_response = Mock()
+    mock_response.text = '{"test": "data"}'
+    
+    result = gemini_client._parse_json_response(mock_response)
+    assert result == {"test": "data"}
+
+def test_parse_json_response_with_markdown(gemini_client):
+    # Mock response with markdown formatting
+    mock_response = Mock()
+    mock_response.text = '```json\n{"test": "data"}\n```'
+    
+    result = gemini_client._parse_json_response(mock_response)
+    assert result == {"test": "data"}
+
+# Add more tests as needed
+```
+
+## Files Already Created (from previous context):
+
+The following files are already implemented and don't need to be created again:
+
+1. **app/core/gemini_client.py** - Main Gemini client
+2. **app/models/schemas.py** - Pydantic schemas
+3. **app/services/pdf_analyzer.py** - PDF analysis service
+4. **app/services/question_classifier.py** - Question classification
+5. **app/utils/logger.py** - Logging configuration
+6. **app/utils/helpers.py** - Utility functions
+7. **app/api/endpoints.py** - REST API endpoints
+
+## New Files to Create:
+
+1. **app/models/rubric_schemas.py** - Rubric-specific schemas
+2. **app/core/rubric_gemini_client.py** - Rubric generation client
+3. **app/services/rubric_generator.py** - Core rubric logic
+4. **app/services/rubric_workers.py** - Worker pool
+5. **app/services/rubric_validator.py** - Quality validation
+6. **app/services/question_parser.py** - Question parsing
+7. **app/services/websocket_handler.py** - WebSocket handling
+8. **app/api/websocket_endpoints.py** - WebSocket endpoints
+
+## Deployment Steps:
+
+1. **Development Setup:**
 ```bash
-chmod +x start.sh
+git clone <repository>
+cd question_paper_analyzer
+cp .env.example .env
+# Edit .env with your Gemini API key
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+2. **Docker Deployment:**
+```bash
+docker-compose up -d
+```
+
+3. **Production Deployment:**
+```bash
+# Build and deploy using your preferred method
+# Configure environment variables
+# Set up reverse proxy (nginx)
+# Configure SSL certificates
+```
+
+This complete file structure provides a production-ready microservice for question paper extraction and rubric generation using only Google's Gemini AI.
+

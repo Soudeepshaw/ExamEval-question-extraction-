@@ -32,6 +32,21 @@ class Settings(BaseSettings):
     # Structured Output Configuration
     USE_NATIVE_STRUCTURED_OUTPUT: bool = os.getenv("USE_NATIVE_STRUCTURED_OUTPUT", "true").lower() == "true"
     
+    # Rubric Generation Configuration
+    ENABLE_RUBRIC_GENERATION: bool = os.getenv("ENABLE_RUBRIC_GENERATION", "true").lower() == "true"
+    RUBRIC_WORKER_COUNT: int = int(os.getenv("RUBRIC_WORKER_COUNT", "4"))
+    RUBRIC_QUALITY_MODE: str = os.getenv("RUBRIC_QUALITY_MODE", "balanced")  # high, balanced, fast
+    RUBRIC_MAX_CRITERIA: int = int(os.getenv("RUBRIC_MAX_CRITERIA", "6"))
+    RUBRIC_TIMEOUT_SECONDS: int = int(os.getenv("RUBRIC_TIMEOUT_SECONDS", "300"))
+    RUBRIC_BATCH_DELAY: float = 2.0  # Delay between batches (seconds)
+    RUBRIC_BATCH_SIZE: int = 2  # Process in small batches
+    RUBRIC_REQUEST_DELAY: float = 1.0  # Delay between requests (seconds)
+
+    
+    # WebSocket Configuration
+    WEBSOCKET_HEARTBEAT_INTERVAL: int = int(os.getenv("WEBSOCKET_HEARTBEAT_INTERVAL", "30"))
+    WEBSOCKET_MAX_CONNECTIONS: int = int(os.getenv("WEBSOCKET_MAX_CONNECTIONS", "10"))
+    
     class Config:
         case_sensitive = True
 
